@@ -1,0 +1,33 @@
+<article class="product-list">
+
+  <header><h1>List of Mushrooms</h1></header>
+  <div>
+    <input type="text" class="mushroom-list__search" ng-model="query" placeholder="search">
+  </div>
+  <section>
+    <label>Poisonous</label>
+	<input type="radio" class="poison" ng-model="potato" value="false">
+	<label>Non-Poisonous</label>
+	<input type="radio" class="nonpoison" value="true" ng-model="potato">
+
+
+	<div ng-repeat="item in mushrooms | filter:potato |filter:query">
+		<div ng-show="item.edible">
+			<span>{{item.name}}</span>
+		</div>
+		<div ng-show="!item.edible">
+			<span>{{item.name}}</span>
+		</div>
+	</div>
+
+
+<!--     <div ng-repeat="item in mushrooms | filter:query | filter:type">
+    	<div ng-show="item.edible"></div>
+      		<span>{{ item.name }}</span>
+   
+    </div> -->
+
+
+  </section>
+
+</article>
